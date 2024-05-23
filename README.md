@@ -18,3 +18,9 @@ import {Component} from "path";
 
 state?
 when ever a state variable update react re renders the component
+
+Reconciliation Algorithum(react fiber)?
+A)
+
+virtual DOM ?
+virutal DOM is a representation of actual DOM

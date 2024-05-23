@@ -1,25 +1,18 @@
-
+import { restaurantList } from "../utils/constants";
 import RestaurantCard from "./RestaurantCard";
-import resList from "../utils/mockData";
 import { useState } from "react";
 
 function filterData(searchText, restaurants) {
-    const filterData = resList.filter((res) =>
-      res.name.includes(searchText)
-    );
-    return filterData;
-  }
-
-const Body=()=>{
-
-    
-
- const [restaurants,setRestaurant]=useState(resList);
- const [searchText,setSearchText]=useState("");
-
-
-    return(
-      <>
+  const filterData = restaurants.filter((restaurant) =>
+    restaurant.data.name.includes(searchText)
+  );
+  return filterData;
+}
+const Body = () => {
+  const [restaurants, setRestaurants] = useState(restaurantList);
+  const [searchText, setSearchText] = useState("");
+  return (
+    <>
       <div className="search-container">
         <input
           type="text"
@@ -33,9 +26,9 @@ const Body=()=>{
         <button
           className="search-btn"
           onClick={() => {
-            
+            //need to filter the data
             const data = filterData(searchText, restaurants);
-          
+            // update the state - restaurants
             setRestaurants(data);
           }}
         >
@@ -43,14 +36,13 @@ const Body=()=>{
         </button>
       </div>
       <div className="restaurant-list">
-        {resList.map((res) => {
+        {restaurants.map((restaurant) => {
           return (
-            <RestaurantCard {...res.data} key={res.id} />
+            <RestaurantCard {...restaurant.data} key={restaurant.data.id} />
           );
         })}
       </div>
     </>
-    )
-}
-
+  );
+};
 export default Body;

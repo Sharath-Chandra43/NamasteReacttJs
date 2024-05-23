@@ -1,19 +1,18 @@
-const RestaurantCard=(props)=>{
+import { IMG_URL } from "../utils/constants";
 
-    const {resData}=props;
-
-
-
-    return(
-        <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
-            <img alt="res-logo" src={resData.image} className="res-logo" />
-            <h3>{resData.resName}</h3>
-            <h4>{resData.cuisine.join(", ")}</h4>
-            <h4>{resData.rating}</h4>
-            <h4>{resData.price}</h4>
-        </div>
-    );
+const RestaurantCard = ({
+  name,
+  cuisines,
+  cloudinaryImageId,
+  lastMileTravelString,
+}) => {
+  return (
+    <div className="card">
+      <img src={IMG_URL + cloudinaryImageId} />
+      <h2>{name}</h2>
+      <h3>{cuisines.join(", ")}</h3>
+      <h4>{lastMileTravelString} minutes</h4>
+    </div>
+  );
 };
-
-
 export default RestaurantCard;
