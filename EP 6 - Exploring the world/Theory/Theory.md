@@ -1,4 +1,6 @@
 What is a Microservice?
+
+
 A)The idea is to split your application into a set of smaller, interconnected
 services instead of building a single monolithic application. Each service handles
 a specific job, like handling user accounts or managing payments. Inside each
@@ -7,6 +9,8 @@ logic) and tools (adapters).
 
 
 What is Monolith architecture?
+
+
 A)In the past, we used to build large projects where everything was bundled
 together. Imagine building an entire application where all the code—APIs, user
 interface, database connections, authentication, even notification services—
@@ -15,31 +19,36 @@ resides in one massive project with single code base.
 
 
 What is the difference between Monolith and Microservice?
+
+
 A) monolithic application is built as a single unified unit while a microservices architecture is a collection of smaller, independently deployable services
 
 
 
 Why do we need a useEffect Hook?
-A)The useEffect Hook allows you to perform side effects in your components.
 
+
+A)The useEffect Hook allows you to perform side effects in your components
 Some examples of side effects are: fetching data, directly updating the DOM, and timers.
-
 useEffect accepts two arguments. The second argument is dependency. 
 
 
 
 What is Optional Chaining?
+
 A)The optional chaining (?.) operator accesses an object's property or calls a function. If the object accessed or function called using this operator is undefined or null, the expression short circuits and evaluates to undefined instead of throwing an error.
 
 
 
 
 What is Shimmer UI?
+
 A)The primary purpose of React Shimmer is to enhance the user experience during data loading. By providing a shimmer effect, React Shimmer keeps users engaged, offering a visual cue that content is being loaded
 
 
 
 What is the difference between JS expression and JS statement
+
 A)Statements create side effects to be useful, while expressions are values or execute to values.
 Expressions are unique in meaning, while statements are two-sided in execution. For example, 1 has a certain value while go( ) may be executed or not.
 Statements are the whole structure, while expressions are the building blocks. For example, a line or a block of code is a statement.
