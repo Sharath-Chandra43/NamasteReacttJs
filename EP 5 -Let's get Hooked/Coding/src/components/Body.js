@@ -26,10 +26,9 @@ const Body = () => {
         <button
           className="search-btn"
           onClick={() => {
-            //need to filter the data
+          
             const data = filterData(searchText, restaurants);
-            // update the state - restaurants
-            setRestaurants(data);
+                        setRestaurants(data);
           }}
         >
           Search
