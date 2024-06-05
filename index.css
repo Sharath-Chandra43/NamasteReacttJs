@@ -119,3 +119,19 @@
     border-radius: 5px;
 }
 
+
+
+.error{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.error-text{
+    text-align: center;
+}
+
+.link-text{
+    font-family:Tahoma;
+    font-size: 20px;
+}
