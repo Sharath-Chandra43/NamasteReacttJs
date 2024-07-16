@@ -135,3 +135,9 @@
     font-family:Tahoma;
     font-size: 20px;
 }
+
+.User-card{
+    padding:10px;
+    border:2px;
+    border-color: black;
+}

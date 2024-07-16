@@ -5,6 +5,8 @@ import { useState,useEffect } from "react";
 import ShimmerUI from "./ShimmerUI.js";
 
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus.js";
+
 
 function filterData(searchText, restaurants) {
   const filterData = restaurants.filter((restaurant) =>
@@ -34,8 +36,10 @@ const Body = () => {
     };
 
     
+  const OnlineStatus=useOnlineStatus();
 
-
+  if (OnlineStatus===false) return <h1>Looks like You're Offline !!! Please check Your Internet connection</h1>
+    console.log(OnlineStatus);
 
   return listOfRestaurants.length===0 ? <ShimmerUI/> :(
     <>
