@@ -20,7 +20,9 @@
   "homepage": "https://github.com/Sharath-Chandra43/NamasteReacttJs#readme",
   "devDependencies": {
     "parcel": "^2.11.0",
-    "process": "^0.11.10"
+    "postcss": "^8.4.39",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.5"
   },
   "dependencies": {
     "react": "^18.2.0",
