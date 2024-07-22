@@ -1,27 +1,33 @@
 
-import RestaurantCard from "./RestaurantCard";
-import { useState,useEffect } from "react";
+import RestaurantCard ,{withOpendLabel} from "./RestaurantCard";
+import { useState,useEffect,useContext } from "react";
 
 import ShimmerUI from "./ShimmerUI.js";
 
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
+import UserContext from "../utils/UserContext.js";
 
 
-function filterData(searchText, restaurants) {
-  const filterData = restaurants.filter((restaurant) =>
-    restaurant.info.name.includes(searchText)
-  );
-  return filterData;
-}
+
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filterRestaurant,setFilterdReastaurant]=useState([]);
 
   const [searchText, setSearchText] = useState("");
 
-  
+  const RestaurantCardOpend=withOpendLabel(RestaurantCard)
 
+
+
+  function filterData(searchText, restaurants) {
+    const filterData = restaurants.filter((restaurant) =>
+      restaurant.info.name.includes(searchText)
+    );
+    return filterData;
+  }
+  
+ console.log(listOfRestaurants);
     useEffect(()=>{
         fetchData();
     },[]);
@@ -39,7 +45,10 @@ const Body = () => {
   const OnlineStatus=useOnlineStatus();
 
   if (OnlineStatus===false) return <h1>Looks like You're Offline !!! Please check Your Internet connection</h1>
-    console.log(OnlineStatus);
+    // console.log(OnlineStatus);
+
+
+    const {loggedInUser,setUserName}=useContext(UserContext);
 
   return listOfRestaurants.length===0 ? <ShimmerUI/> :(
       <><div className="body">
@@ -69,14 +78,25 @@ const Body = () => {
         } }>
           Top Rated Restaurants
         </button>
+        </div>
+      <div className="m-4 p-4 mx-32">
+        <label className="Username">UserName:</label>
+        <input className="border mx-2 border-black" id="Username"  onChange={(e)=>setUserName(e.target.value)} value={loggedInUser}/>
       </div>
       </div>
-    </div><div className="flex flex-wrap  mb-4">
+      </div>
+   
+    <div className="flex flex-wrap  mb-4">
         {filterRestaurant.map((restaurant) => {
-          return <Link to={"/restaurants/" + restaurant.info.id} key={restaurant.info.id}> <RestaurantCard resData={restaurant} /> </Link>;
+          return <Link to={"/restaurants/" + restaurant.info.id} key={restaurant.info.id}>
+            {restaurant.info.isOpen ? <RestaurantCardOpend resData={restaurant} /> :<RestaurantCard resData={restaurant} />}
+            </Link>;
         })}
       </div><div /></>
   );
 };
 
 export default Body;
+
+//filterData
+//filterRestaurant

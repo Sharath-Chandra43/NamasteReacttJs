@@ -1,7 +1,6 @@
 # Namaste React By Akshay Saini
 
 Episode 02 - Igniting Our App
-
 ● - intialize `npm` into your repo
 ● - install `react` and `react-dom`
 ● - remove CDN links of react

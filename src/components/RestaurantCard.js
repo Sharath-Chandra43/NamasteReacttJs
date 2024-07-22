@@ -26,4 +26,23 @@ const RestaurantCard = (props)=>{
       </div>
     );
   };
+
+
+
+  //Higher order component 
+  
+  //input - RestaurantCard => RestaurantCardPromoted
+
+
+  export const withOpendLabel =(RestaurantCard)=>{
+    return(props)=>{
+      return(
+        <div>
+          <label className="bg-gray-800 text-white rounded-lg m-2 p-2 absolute hover:bg-green-600">Opend</label>
+          <RestaurantCard {...props} />
+        </div>
+      )
+    }
+  }
+  
   export default RestaurantCard;
